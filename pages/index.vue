@@ -41,7 +41,7 @@
   })
 
 
-  async function getPosition (cords) {
+  const  getPosition =async  (cords) => {
     
     position.lat = cords.coords.latitude
     position.long = cords.coords.longitude
@@ -52,10 +52,12 @@
     const found = posts.value.result.find((post, i) => post.postcode == postcode)
     if (found) {
       message.value = "You are in the right location, thank you for attending sunday school today"
+    } else {
+      message.value = "Sorry, I donot think you are in church"
     }
 
   } 
-  function submit() {
+  const  submit = ()=> {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(getPosition)
     }
